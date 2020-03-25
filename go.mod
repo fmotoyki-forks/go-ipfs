@@ -45,7 +45,7 @@ require (
 	github.com/ipfs/go-ipld-format v0.0.2
 	github.com/ipfs/go-ipld-git v0.0.3
 	github.com/ipfs/go-ipns v0.0.2
-	github.com/ipfs/go-log v1.0.2
+	github.com/ipfs/go-log v1.0.3
 	github.com/ipfs/go-merkledag v0.3.1
 	github.com/ipfs/go-metrics-interface v0.0.1
 	github.com/ipfs/go-metrics-prometheus v0.0.2
@@ -59,7 +59,7 @@ require (
 	github.com/jbenet/go-temp-err-catcher v0.1.0
 	github.com/jbenet/goprocess v0.1.4
 	github.com/libp2p/go-eventbus v0.1.0
-	github.com/libp2p/go-libp2p v0.7.0
+	github.com/libp2p/go-libp2p v0.7.1
 	github.com/libp2p/go-libp2p-circuit v0.1.4
 	github.com/libp2p/go-libp2p-connmgr v0.2.1
 	github.com/libp2p/go-libp2p-core v0.5.0
@@ -99,8 +99,8 @@ require (
 	github.com/whyrusleeping/multiaddr-filter v0.0.0-20160516205228-e903e4adabd7
 	github.com/whyrusleeping/tar-utils v0.0.0-20180509141711-8c6c8ba81d5c
 	go.uber.org/fx v1.10.0
-	golang.org/x/crypto v0.0.0-20200311171314-f7b00557c8c4
-	golang.org/x/sys v0.0.0-20200302150141-5c8b2ff67527
+	golang.org/x/crypto v0.0.0-20200323165209-0ec3e9974c59
+	golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
 )
 
