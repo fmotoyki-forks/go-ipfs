@@ -695,6 +695,8 @@ github.com/libp2p/go-yamux v1.3.3 h1:mWuzZRCAeTBFdynLlsYgA/EIeMOLr8XY04wa52NRhsE
 github.com/libp2p/go-yamux v1.3.3/go.mod h1:FGTiPvoV/3DVdgWpX+tM0OW3tsM+W5bSE3gZwqQTcow=
 github.com/libp2p/go-yamux v1.3.4 h1:CptmtNfQomI9RpM7LFJhVBFkwp2zwEXIskEfWwwtoHg=
 github.com/libp2p/go-yamux v1.3.4/go.mod h1:FGTiPvoV/3DVdgWpX+tM0OW3tsM+W5bSE3gZwqQTcow=
+github.com/libp2p/go-yamux v1.3.5-0.20200327161919-c436870381e3 h1:iCE7smjvqNf8HBVId4DGINSM+zSCUD6X2r5g4bbOGSI=
+github.com/libp2p/go-yamux v1.3.5-0.20200327161919-c436870381e3/go.mod h1:FGTiPvoV/3DVdgWpX+tM0OW3tsM+W5bSE3gZwqQTcow=
 github.com/lucas-clemente/quic-go v0.15.2 h1:RgxRJ7rPde0Q/uXDeb3/UdblVvxrYGDAG9G9GO78LmI=
 github.com/lucas-clemente/quic-go v0.15.2/go.mod h1:qxmO5Y4ZMhdNkunGfxuZnZXnJwYpW9vjQkyrZ7BsgUI=
 github.com/lunixbochs/vtclean v1.0.0/go.mod h1:pHhQNgMf3btfWnGBVipUOjRYhoOsdGqdm/+2c2E2WMI=

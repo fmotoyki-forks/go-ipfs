@@ -82,6 +82,7 @@ require (
 	github.com/libp2p/go-libp2p-yamux v0.2.6
 	github.com/libp2p/go-maddr-filter v0.0.5
 	github.com/libp2p/go-socket-activation v0.0.2
+	github.com/libp2p/go-yamux v1.3.5-0.20200327161919-c436870381e3 // indirect
 	github.com/mattn/go-runewidth v0.0.8 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mr-tron/base58 v1.1.3
