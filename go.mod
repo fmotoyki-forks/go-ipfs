@@ -21,7 +21,7 @@ require (
 	github.com/ipfs/go-cidutil v0.0.2
 	github.com/ipfs/go-datastore v0.4.4
 	github.com/ipfs/go-detect-race v0.0.1
-	github.com/ipfs/go-ds-badger v0.2.1
+	github.com/ipfs/go-ds-badger v0.2.2
 	github.com/ipfs/go-ds-flatfs v0.4.0
 	github.com/ipfs/go-ds-leveldb v0.4.2
 	github.com/ipfs/go-ds-measure v0.1.0
@@ -31,11 +31,11 @@ require (
 	github.com/ipfs/go-ipfs-blockstore v0.1.4
 	github.com/ipfs/go-ipfs-chunker v0.0.5
 	github.com/ipfs/go-ipfs-cmds v0.1.4
-	github.com/ipfs/go-ipfs-config v0.3.0
+	github.com/ipfs/go-ipfs-config v0.4.0
 	github.com/ipfs/go-ipfs-ds-help v0.1.1
 	github.com/ipfs/go-ipfs-exchange-interface v0.0.1
 	github.com/ipfs/go-ipfs-exchange-offline v0.0.1
-	github.com/ipfs/go-ipfs-files v0.0.7
+	github.com/ipfs/go-ipfs-files v0.0.8
 	github.com/ipfs/go-ipfs-pinner v0.0.4
 	github.com/ipfs/go-ipfs-posinfo v0.0.1
 	github.com/ipfs/go-ipfs-provider v0.4.1
@@ -59,7 +59,7 @@ require (
 	github.com/jbenet/go-temp-err-catcher v0.1.0
 	github.com/jbenet/goprocess v0.1.4
 	github.com/libp2p/go-eventbus v0.1.0
-	github.com/libp2p/go-libp2p v0.7.1
+	github.com/libp2p/go-libp2p v0.7.2
 	github.com/libp2p/go-libp2p-circuit v0.1.4
 	github.com/libp2p/go-libp2p-connmgr v0.2.1
 	github.com/libp2p/go-libp2p-core v0.5.0
@@ -69,10 +69,10 @@ require (
 	github.com/libp2p/go-libp2p-kbucket v0.2.3
 	github.com/libp2p/go-libp2p-loggables v0.1.0
 	github.com/libp2p/go-libp2p-mplex v0.2.2
-	github.com/libp2p/go-libp2p-peerstore v0.2.1
+	github.com/libp2p/go-libp2p-peerstore v0.2.2
 	github.com/libp2p/go-libp2p-pubsub v0.2.6
 	github.com/libp2p/go-libp2p-pubsub-router v0.2.1
-	github.com/libp2p/go-libp2p-quic-transport v0.3.1
+	github.com/libp2p/go-libp2p-quic-transport v0.2.4-0.20200228032821-6d8b0e775c52
 	github.com/libp2p/go-libp2p-record v0.1.2
 	github.com/libp2p/go-libp2p-routing-helpers v0.1.0
 	github.com/libp2p/go-libp2p-secio v0.2.1
