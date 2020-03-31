@@ -39,9 +39,47 @@ This release includes many important changes users need to aware of.
 
 #### New DHT
 
-This release includes an almost completely rewritten DHT implementation with a new protocol version. From a user's perspective, providing, finding content, and resolving IPNS records should simply get faster. However, this is a _significant_ (albeit well tested) change and significant changes are always risky, so heads up.
+[[ NOT YET IN THE RC ]]
 
-TODO: Add an explanation around how we're doing this upgrade.
+This release includes an almost completely rewritten DHT implementation with a new protocol version. From a user's perspective, providing content, finding content, and resolving IPNS records should simply get faster. However, this is a _significant_ (albeit well tested) change and significant changes are always risky, so heads up.
+
+##### Old v. New
+
+The current DHT suffers from three core issues addressed in this release:
+
+1. Most peers in the DHT cannot be dialed (e.g., due to firewalls and NATs). Much of a DHT query time is wasted trying to connect to peers that cannot be reached.
+2. The DHT query logic doesn't properly terminate when it hits the end of the query and, instead, aggressively keeps on searching.
+3. The routing tables are poorly maintained. This can cause a search that should be logarithmic in the size of the network to be linear.
+
+###### Reachable
+
+We have addressed the problem of undialable nodes by having nodes wait to join the DHT as "server" nodes until they've confirmed that they are publicly reachable. Additionally, we've introduced:
+
+* A new libp2p protocol to push updates to our peers when we start/stop listen on protocols.
+* A libp2p event bus for processing updates like these.
+
+Note: go-ipfs 0.5 will actually run _two_ DHTs at once: one for the local private network and one for the public network. This way IPFS will still work offline, on private VPNs, in data centers, etc.
+
+###### Query Logic
+
+We've fixed the DHT query logic by correctly implementing Kademlia (with a few tweaks). This should significantly speed up:
+
+* Publishing IPNS & provider records. We previously continued searching for closer and closer peers to the "target" until we timed out, then we put to the closest peers we found.
+* Resolving IPNS addresses. We previously continued IPNS record searches until we ran out of peers to query, timed out, or found 16 records.
+
+In both cases, we now continue till we find the closest peers then stop.
+
+###### Routing Tables
+
+Finally, we've addressed the poorly maintained routing tables by:
+
+* Reducing the likelihood that the connection manager will kill connections to peers in the routing table.
+* Keeping peers in the routing table, even if we get disconnected from them.
+* Actively and frequently querying the DHT to keep our routing table full.
+
+##### Testing
+
+The DHT rewrite was made possible by our new testing framework, [testground](https://github.com/ipfs/testground). 
 
 #### Refactored Bitswap
 
@@ -49,10 +87,10 @@ This release includes a _major_ bitswap refactor running a new, but backwards co
 
 With the refactored bitswap, we expect:
 
-* Few to no duplicate blocks when fetching data.
+* Few to no duplicate blocks when fetching data from other nodes speaking the new protocol.
 * Better parallelism when fetching from multiple peers.
 
-However, go-ipfs 0.5 may perform slightly _worse_ in some edge-cases when downloading older go-ipfs versions (where it has less information about who has what). Our tests have shown that this isn't actually an issue in practice, but it's still theoretically possible.
+However, go-ipfs 0.5 may perform slightly _worse_ in some edge-cases when downloading older go-ipfs versions (where it has less information about who has what). This issue hasn't shown up in our tests, but it's theoretically possible.
 
 #### Provider Record Changes
 
@@ -63,6 +101,8 @@ However, go-ipfs has multiple ways to address the same underlying bytes. Specifi
 Prior to go-ipfs 0.5.0, we used the content id (CID) in the DHT when sending out provider records for content. Unfortunately, this meant that users trying to find data announced using one CID wouldn't find nodes providing the content under a different CID.
 
 In go-ipfs 0.5.0, we're announcing data by _multihash_, not _CID_. This way, regardless of the CID version used by the peer adding the content, the peer trying to download the content should still be able to find it.
+
+**Warning:** as part of the network, this could impact finding content added with CIDv1. Because go-ipfs 0.5.0 will announce and search for content using the bare multihash (equivalent to the v0 CID), go-ipfs 0.5.0 will be unable to find CIDv1 content published by nodes prior to go-ipfs 0.5.0 and vice-versa. As CIDv1 is _not_ enabled by default so we believe this will have minimal impact. However, users are _strongly_ encouraged to upgrade as soon as possible.
 
 #### IPFS/Libp2p Address Format
 
